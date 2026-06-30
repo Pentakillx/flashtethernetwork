@@ -18,7 +18,7 @@ export function LiveChatCTA() {
         <div className="bg-gray-900 border border-gray-700 rounded-2xl shadow-2xl p-4 w-56 animate-in fade-in slide-in-from-bottom-2 duration-200">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse" />
               <span className="text-white text-xs font-semibold">Support Online</span>
             </div>
             <button
@@ -34,7 +34,7 @@ export function LiveChatCTA() {
           </p>
           <button
             onClick={handleStartChat}
-            className="w-full py-2 bg-green-500 hover:bg-green-600 text-white text-xs font-semibold rounded-lg transition-colors"
+            className="w-full py-2 bg-amber-500 hover:bg-amber-600 text-white text-xs font-semibold rounded-lg transition-colors"
           >
             Start Chat $2
           </button>
@@ -46,7 +46,7 @@ export function LiveChatCTA() {
         className={`w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 ${
           open
             ? "bg-gray-700 hover:bg-gray-600"
-            : "bg-green-500 hover:bg-green-600 hover:scale-110 shadow-green-500/40"
+            : "bg-amber-500 hover:bg-amber-600 hover:scale-110 shadow-amber-500/40"
         }`}
       >
         {open ? (

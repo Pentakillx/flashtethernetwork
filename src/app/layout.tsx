@@ -9,9 +9,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Flash USDT Sender - Enterprise USDT Flash Transfer Software | Get Access Now",
+  title: "FlashTether NETWORK - Enterprise USDT Flash Transfer Software | Get Access Now",
   description:
-    "Flash USDT Sender v4.2 - Professional enterprise-grade software for instant USDT flash transfers across ERC20, BEP20, TRC20 networks. Licensed unlimited flashing with AES-256 encryption, real-time monitoring, 99.9% success rate, and 24/7 support.",
+    "FlashTether NETWORK v4.2 - Professional enterprise-grade software for instant USDT flash transfers across ERC20, BEP20, TRC20 networks. Licensed unlimited flashing with AES-256 encryption, real-time monitoring, 99.9% success rate, and 24/7 support.",
 };
 
 export default function RootLayout({

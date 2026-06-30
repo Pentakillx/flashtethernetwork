@@ -15,8 +15,8 @@ export default function PrivacyPage() {
 
         <div className="bg-gray-900/40 backdrop-blur-xl border border-gray-800/50 rounded-2xl p-8 md:p-12">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center">
-              <Zap className="w-6 h-6 text-green-400" />
+            <div className="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center">
+              <Zap className="w-6 h-6 text-amber-400" />
             </div>
             <div>
               <h1 className="text-3xl md:text-4xl font-bold">Privacy Policy</h1>
@@ -28,7 +28,7 @@ export default function PrivacyPage() {
             <section>
               <h2 className="text-2xl font-semibold text-white mb-4">1. Introduction</h2>
               <p className="leading-relaxed">
-                Flash USDT respects your privacy. This Privacy Policy explains how we collect, use,
+                FlashTether respects your privacy. This Privacy Policy explains how we collect, use,
                 and protect your personal information when you use our services.
               </p>
             </section>
@@ -143,9 +143,9 @@ export default function PrivacyPage() {
               </p>
             </section>
 
-            <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-6 mt-8">
+            <div className="bg-amber-500/10 border border-amber-500/20 rounded-xl p-6 mt-8">
               <p className="text-sm text-gray-300 leading-relaxed">
-                By using Flash USDT services, you acknowledge that you have read and understood this
+                By using FlashTether services, you acknowledge that you have read and understood this
                 Privacy Policy.
               </p>
             </div>

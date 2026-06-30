@@ -9,7 +9,7 @@ import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-900/50 via-green-900/30 to-gray-950 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-amber-900/50 via-amber-900/30 to-gray-950 text-white">
       <Navbar />
       <main>
         <HeroSection />

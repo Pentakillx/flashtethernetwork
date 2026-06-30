@@ -28,9 +28,9 @@ export function Footer() {
           {/* Brand */}
           <div>
             <Link href="/" className="flex items-center mb-4">
-              <Zap className="h-6 w-6 text-green-500" />
+              <Zap className="h-6 w-6 text-amber-500" />
               <span className="ml-2 text-lg font-bold text-white">
-                Flash<span className="text-green-500">USDT</span>
+                Flash<span className="text-amber-500">USDT</span>
               </span>
             </Link>
             <p className="text-gray-500 max-w-xs text-sm leading-relaxed">
@@ -89,7 +89,7 @@ export function Footer() {
 
         <div className="mt-12 pt-8 border-t border-gray-800/50">
           <p className="text-gray-600 text-sm">
-            © {new Date().getFullYear()} Flash USDT Sender. All rights reserved.
+            © {new Date().getFullYear()} FlashTether NETWORK. All rights reserved.
           </p>
         </div>
       </div>

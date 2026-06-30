@@ -114,13 +114,13 @@ export function SoftwareDemo() {
   return (
     <section id="demo" className="py-10 bg-gray-950 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 right-1/4 w-64 h-64 bg-green-500/5 rounded-full blur-3xl" />
+        <div className="absolute top-20 right-1/4 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold mb-3 bg-gradient-to-r from-white to-green-300 bg-clip-text text-transparent">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3 bg-gradient-to-r from-white to-amber-300 bg-clip-text text-transparent">
             Software Preview
           </h2>
           <p className="max-w-lg mx-auto text-gray-400 text-sm">
@@ -135,9 +135,9 @@ export function SoftwareDemo() {
             <div className="flex gap-1.5">
               <div className="w-3 h-3 rounded-full bg-red-500/80" />
               <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-              <div className="w-3 h-3 rounded-full bg-green-500/80" />
+              <div className="w-3 h-3 rounded-full bg-amber-500/80" />
             </div>
-            <span className="text-gray-500 text-sm ml-2">Flash USDT Pro v4.2</span>
+            <span className="text-gray-500 text-sm ml-2">FlashTether Pro v4.2</span>
           </div>
 
           {/* Tabs */}
@@ -148,7 +148,7 @@ export function SoftwareDemo() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`py-3 px-4 text-sm font-medium transition-all flex items-center gap-2 border-b-2 ${
                   activeTab === tab.id
-                    ? "border-green-500 text-green-400"
+                    ? "border-amber-500 text-amber-400"
                     : "border-transparent text-gray-500 hover:text-gray-300"
                 }`}
               >
@@ -173,7 +173,7 @@ export function SoftwareDemo() {
                       className="flex justify-between items-center p-3 bg-gray-800/50 rounded-lg"
                     >
                       <span className="text-gray-400">{item.label}</span>
-                      <span className="text-green-400 font-semibold">{item.value}</span>
+                      <span className="text-amber-400 font-semibold">{item.value}</span>
                     </div>
                   ))}
                 </div>
@@ -182,10 +182,10 @@ export function SoftwareDemo() {
                   <div className="text-xs text-gray-500 uppercase tracking-wider mb-3">
                     System Status
                   </div>
-                  <div className="p-4 bg-green-500/10 border border-green-500/20 rounded-lg">
+                  <div className="p-4 bg-amber-500/10 border border-amber-500/20 rounded-lg">
                     <div className="flex items-center gap-2 mb-1">
-                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                      <span className="text-green-400 font-semibold">All Systems Operational</span>
+                      <div className="w-2 h-2 bg-amber-500 rounded-full animate-pulse" />
+                      <span className="text-amber-400 font-semibold">All Systems Operational</span>
                     </div>
                     <p className="text-gray-500 text-xs">Latency: 42ms | Uptime: 99.99%</p>
                   </div>
@@ -205,7 +205,7 @@ export function SoftwareDemo() {
             )}
 
             {activeTab === "api" && (
-              <pre className="text-green-400 text-xs whitespace-pre-wrap overflow-x-auto">
+              <pre className="text-amber-400 text-xs whitespace-pre-wrap overflow-x-auto">
                 {API_DEMO_JSON}
               </pre>
             )}
@@ -214,9 +214,9 @@ export function SoftwareDemo() {
               <div className="space-y-3">
                 {SECURITY_ITEMS.map((item, i) => (
                   <div key={i} className="flex items-start gap-3 p-4 bg-gray-800/50 rounded-lg">
-                    <Lock className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                    <Lock className="w-4 h-4 text-amber-400 mt-0.5 flex-shrink-0" />
                     <div>
-                      <div className="text-green-400 font-semibold text-sm">{item.title}</div>
+                      <div className="text-amber-400 font-semibold text-sm">{item.title}</div>
                       <div className="text-gray-500 text-xs">{item.desc}</div>
                     </div>
                   </div>
@@ -233,7 +233,7 @@ export function SoftwareDemo() {
               key={i}
               className="flex items-center gap-3 p-4 bg-gray-900/50 border border-gray-800 rounded-xl"
             >
-              <item.icon className="w-5 h-5 text-green-500 flex-shrink-0" />
+              <item.icon className="w-5 h-5 text-amber-500 flex-shrink-0" />
               <span className="text-sm text-gray-300">{item.label}</span>
             </div>
           ))}

@@ -15,8 +15,8 @@ export default function TermsPage() {
 
         <div className="bg-gray-900/40 backdrop-blur-xl border border-gray-800/50 rounded-2xl p-8 md:p-12">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center">
-              <Zap className="w-6 h-6 text-green-400" />
+            <div className="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center">
+              <Zap className="w-6 h-6 text-amber-400" />
             </div>
             <div>
               <h1 className="text-3xl md:text-4xl font-bold">Terms of Service</h1>
@@ -28,7 +28,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-semibold text-white mb-4">1. Acceptance of Terms</h2>
               <p className="leading-relaxed">
-                By accessing and using Flash USDT software and services, you agree to be bound by
+                By accessing and using FlashTether software and services, you agree to be bound by
                 these Terms of Service. If you do not agree to these terms, please do not use our
                 services.
               </p>
@@ -38,7 +38,7 @@ export default function TermsPage() {
               <h2 className="text-2xl font-semibold text-white mb-4">2. License Grant</h2>
               <p className="leading-relaxed mb-4">
                 Upon payment, we grant you a limited, non-exclusive, non-transferable license to use
-                Flash USDT software for the duration specified in your selected plan. The license is
+                FlashTether software for the duration specified in your selected plan. The license is
                 personal to you and may not be shared, resold, or transferred.
               </p>
               <ul className="list-disc list-inside space-y-2 ml-4">
@@ -54,7 +54,7 @@ export default function TermsPage() {
                 <div className="flex items-start gap-3">
                   <AlertTriangle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-1" />
                   <p className="text-yellow-100 text-sm">
-                    You agree to use Flash USDT software responsibly and in compliance with all
+                    You agree to use FlashTether software responsibly and in compliance with all
                     applicable laws and regulations.
                   </p>
                 </div>
@@ -113,7 +113,7 @@ export default function TermsPage() {
                 7. Disclaimer of Warranties
               </h2>
               <p className="leading-relaxed">
-                Flash USDT software is provided &quot;as is&quot; without warranty of any kind, either express
+                FlashTether software is provided &quot;as is&quot; without warranty of any kind, either express
                 or implied. We do not warrant that the software will be error-free, secure, or
                 uninterrupted. You use the software at your own risk.
               </p>
@@ -122,7 +122,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-semibold text-white mb-4">8. Limitation of Liability</h2>
               <p className="leading-relaxed">
-                In no event shall Flash USDT be liable for any indirect, incidental, special,
+                In no event shall FlashTether be liable for any indirect, incidental, special,
                 consequential, or punitive damages, including but not limited to loss of profits,
                 data, or use, arising out of or related to your use of the software, even if we have
                 been advised of the possibility of such damages.
@@ -157,9 +157,9 @@ export default function TermsPage() {
               </p>
             </section>
 
-            <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-6 mt-8">
+            <div className="bg-amber-500/10 border border-amber-500/20 rounded-xl p-6 mt-8">
               <p className="text-sm text-gray-300 leading-relaxed">
-                By purchasing and using Flash USDT software, you acknowledge that you have read,
+                By purchasing and using FlashTether software, you acknowledge that you have read,
                 understood, and agree to be bound by these Terms of Service.
               </p>
             </div>

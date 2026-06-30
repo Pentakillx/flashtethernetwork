@@ -7,14 +7,14 @@
 // 1. GENEL SİTE BİLGİLERİ
 // -----------------------------------------------------------
 export const SITE = {
-  name: "Flash USDT Sender",
-  nameShort: "FlashUSDT",
-  tagline: "Enterprise USDT flash transfer software with military-grade security and real-time monitoring.",
+  name: "FlashTether NETWORK",
+  nameShort: "FlashTether",
+  tagline: "Enterprise Tether flash transfer software with military-grade security and real-time monitoring.",
   softwareVersion: "v4.2",
   copyrightYear: new Date().getFullYear(),
-  seoTitle: "Flash USDT Sender - Enterprise USDT Flash Transfer Software | Get Access Now",
+  seoTitle: "FlashTether NETWORK - Enterprise USDT Flash Transfer Software | Get Access Now",
   seoDescription:
-    "Flash USDT Sender v4.2 - Professional enterprise-grade software for instant USDT flash transfers across ERC20, BEP20, TRC20 networks. Licensed unlimited flashing with AES-256 encryption, real-time monitoring, 99.9% success rate, and 24/7 support.",
+    "FlashTether NETWORK v4.2 - Professional enterprise-grade software for instant USDT flash transfers across ERC20, BEP20, TRC20 networks. Licensed unlimited flashing with AES-256 encryption, real-time monitoring, 99.9% success rate, and 24/7 support.",
 } as const;
 
 // -----------------------------------------------------------
@@ -54,9 +54,9 @@ export const PLANS = [
     subtitle: "Perfect for getting started",
     featured: false,
     tiers: [
-      { duration: "1 day",   durationKey: "1 day",   limit: "2k Flash USDT"  },
-      { duration: "7 days",  durationKey: "7 days",  limit: "10k Flash USDT" },
-      { duration: "1 month", durationKey: "1 month", limit: "50k Flash USDT" },
+      { duration: "1 day",   durationKey: "1 day",   limit: "2k FlashTether"  },
+      { duration: "7 days",  durationKey: "7 days",  limit: "10k FlashTether" },
+      { duration: "1 month", durationKey: "1 month", limit: "50k FlashTether" },
     ],
     features: [
       "Flash up to 50k USDT",
@@ -75,9 +75,9 @@ export const PLANS = [
     subtitle: "For growing operations",
     featured: false,
     tiers: [
-      { duration: "1 day",   durationKey: "1 day",   limit: "15k Flash USDT"  },
-      { duration: "7 days",  durationKey: "7 days",  limit: "50k Flash USDT"  },
-      { duration: "1 month", durationKey: "1 month", limit: "150k Flash USDT" },
+      { duration: "1 day",   durationKey: "1 day",   limit: "15k FlashTether"  },
+      { duration: "7 days",  durationKey: "7 days",  limit: "50k FlashTether"  },
+      { duration: "1 month", durationKey: "1 month", limit: "150k FlashTether" },
     ],
     features: [
       "Flash up to 150k USDT",
@@ -96,9 +96,9 @@ export const PLANS = [
     subtitle: "Enterprise-grade solution",
     featured: true,
     tiers: [
-      { duration: "1 day",   durationKey: "1 day",   limit: "350k Flash USDT" },
-      { duration: "7 days",  durationKey: "7 days",  limit: "1M Flash USDT"   },
-      { duration: "1 month", durationKey: "1 month", limit: "50M Flash USDT"  },
+      { duration: "1 day",   durationKey: "1 day",   limit: "350k FlashTether" },
+      { duration: "7 days",  durationKey: "7 days",  limit: "1M FlashTether"   },
+      { duration: "1 month", durationKey: "1 month", limit: "50M FlashTether"  },
     ],
     features: [
       "Flash up to 50M USDT",

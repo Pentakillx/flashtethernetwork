@@ -34,9 +34,9 @@ const CTA_PLANS = [
     price: "from $799",
     limit: "50M USDT/month",
     validity: "370-day validity",
-    border: "border-green-500/40",
-    bg: "bg-green-900/20",
-    badge: "bg-green-500/20 text-green-300",
+    border: "border-amber-500/40",
+    bg: "bg-amber-900/20",
+    badge: "bg-amber-500/20 text-amber-300",
     anchor: "master",
   },
 ];
@@ -51,7 +51,7 @@ function renderBlock(block: ContentBlock, index: number) {
       );
     case "h3":
       return (
-        <h3 key={index} className="text-base font-semibold text-green-300 mt-6 mb-2">
+        <h3 key={index} className="text-base font-semibold text-amber-300 mt-6 mb-2">
           {block.text}
         </h3>
       );
@@ -66,7 +66,7 @@ function renderBlock(block: ContentBlock, index: number) {
         <ul key={index} className="space-y-2.5">
           {block.items.map((item, i) => (
             <li key={i} className="flex items-start gap-3 text-gray-300 text-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-500 flex-shrink-0 mt-2" />
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-2" />
               {item}
             </li>
           ))}
@@ -76,7 +76,7 @@ function renderBlock(block: ContentBlock, index: number) {
       return (
         <div key={index} className="mt-12 pt-8 border-t border-gray-800/60">
           <div className="text-center mb-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-green-500/15 border border-green-500/30 rounded-full text-green-400 text-xs font-semibold mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-amber-500/15 border border-amber-500/30 rounded-full text-amber-400 text-xs font-semibold mb-3">
               <Zap className="w-3.5 h-3.5" />
               Choose Your Plan
             </div>
@@ -107,8 +107,8 @@ function renderBlock(block: ContentBlock, index: number) {
                 <p className="text-white font-bold text-base mb-1">{plan.price}</p>
                 <p className="text-gray-400 text-xs mb-1">{plan.limit}</p>
                 <div className="flex items-center gap-1 mt-auto pt-3">
-                  <Check className="w-3 h-3 text-green-400 flex-shrink-0" />
-                  <span className="text-green-400 text-xs">{plan.validity}</span>
+                  <Check className="w-3 h-3 text-amber-400 flex-shrink-0" />
+                  <span className="text-amber-400 text-xs">{plan.validity}</span>
                 </div>
               </Link>
             ))}
@@ -133,7 +133,7 @@ export default function BlogPostPage() {
       <div className="min-h-screen bg-gray-950 pt-24 flex items-center justify-center">
         <div className="text-center">
           <p className="text-gray-400 mb-4">Post not found.</p>
-          <Link href="/blog" className="text-green-400 hover:text-green-300 text-sm">
+          <Link href="/blog" className="text-amber-400 hover:text-amber-300 text-sm">
             Back to Blog
           </Link>
         </div>
@@ -157,7 +157,7 @@ export default function BlogPostPage() {
         </button>
 
         <div className="flex flex-wrap items-center gap-3 mb-5">
-          <span className="px-2.5 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-medium flex items-center gap-1.5">
+          <span className="px-2.5 py-1 bg-amber-500/20 text-amber-400 rounded-full text-xs font-medium flex items-center gap-1.5">
             <Tag className="w-3 h-3" />
             {post.category}
           </span>
@@ -175,11 +175,11 @@ export default function BlogPostPage() {
           {post.title}
         </h1>
 
-        <p className="text-gray-400 text-base leading-relaxed mb-10 border-l-2 border-green-500/40 pl-4">
+        <p className="text-gray-400 text-base leading-relaxed mb-10 border-l-2 border-amber-500/40 pl-4">
           {post.excerpt}
         </p>
 
-        <div className="h-px bg-gradient-to-r from-green-500/20 via-green-500/10 to-transparent mb-10" />
+        <div className="h-px bg-gradient-to-r from-amber-500/20 via-amber-500/10 to-transparent mb-10" />
 
         <div className="space-y-6">{post.content.map((block, i) => renderBlock(block, i))}</div>
 
@@ -193,15 +193,15 @@ export default function BlogPostPage() {
                 <Link
                   key={rel.slug}
                   href={`/blog/${rel.slug}`}
-                  className="group flex items-center gap-4 p-4 bg-gray-800/40 hover:bg-gray-800/70 border border-gray-700/50 hover:border-green-500/30 rounded-xl transition-all"
+                  className="group flex items-center gap-4 p-4 bg-gray-800/40 hover:bg-gray-800/70 border border-gray-700/50 hover:border-amber-500/30 rounded-xl transition-all"
                 >
                   <div className="flex-1 min-w-0">
-                    <p className="text-white text-sm font-medium group-hover:text-green-400 transition-colors truncate">
+                    <p className="text-white text-sm font-medium group-hover:text-amber-400 transition-colors truncate">
                       {rel.title}
                     </p>
                     <p className="text-gray-500 text-xs mt-0.5">{rel.readTime}</p>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-gray-600 group-hover:text-green-400 flex-shrink-0 transition-colors" />
+                  <ArrowRight className="w-4 h-4 text-gray-600 group-hover:text-amber-400 flex-shrink-0 transition-colors" />
                 </Link>
               ))}
             </div>

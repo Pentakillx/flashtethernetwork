@@ -34,7 +34,7 @@ export function Navbar() {
             <Link href="/" className="flex items-center gap-2">
               <span className="text-2xl">⚡</span>
               <span className="text-xl font-black tracking-tight text-white">
-                Flash<span className="text-green-400">Tether</span>{" "}
+                Flash<span className="text-amber-400">Tether</span>{" "}
                 <span className="text-sm font-semibold tracking-widest text-gray-400 uppercase">
                   Network
                 </span>
@@ -71,7 +71,7 @@ export function Navbar() {
             </Link>
             <button
               onClick={() => scrollTo("packages")}
-              className="px-5 py-2 text-sm rounded-lg bg-green-500 hover:bg-green-600 text-white font-medium transition-all"
+              className="px-5 py-2 text-sm rounded-lg bg-amber-500 hover:bg-amber-600 text-white font-medium transition-all"
             >
               Get Started
             </button>
@@ -124,7 +124,7 @@ export function Navbar() {
             </Link>
             <button
               onClick={() => scrollTo("packages")}
-              className="block w-full text-center px-3 py-2 mt-2 rounded-lg bg-green-500 hover:bg-green-600 text-white font-medium"
+              className="block w-full text-center px-3 py-2 mt-2 rounded-lg bg-amber-500 hover:bg-amber-600 text-white font-medium"
             >
               Get Started
             </button>

@@ -45,9 +45,9 @@ function StepIndicator({ currentStep }: { currentStep: Step | "verify" }) {
                 <div
                   className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
                     done
-                      ? "bg-green-500 shadow-md shadow-green-500/30"
+                      ? "bg-amber-500 shadow-md shadow-amber-500/30"
                       : active
-                      ? "bg-green-500 shadow-md shadow-green-500/40 ring-2 ring-green-500/20"
+                      ? "bg-amber-500 shadow-md shadow-amber-500/40 ring-2 ring-amber-500/20"
                       : "bg-gray-800 border border-gray-700"
                   }`}
                 >
@@ -67,7 +67,7 @@ function StepIndicator({ currentStep }: { currentStep: Step | "verify" }) {
                 <div className="flex-1 h-0.5 mx-2 relative" style={{ top: "-12px" }}>
                   <div className="absolute inset-0 bg-gray-800 rounded-full" />
                   <div
-                    className={`absolute inset-0 bg-green-500 rounded-full transition-all duration-500 ${i < currentIdx ? "w-full" : "w-0"}`}
+                    className={`absolute inset-0 bg-amber-500 rounded-full transition-all duration-500 ${i < currentIdx ? "w-full" : "w-0"}`}
                   />
                 </div>
               )}
@@ -198,7 +198,7 @@ function CheckoutContent() {
         <div className="text-center mb-6">
           <h1 className="text-2xl font-bold text-white mb-1">Complete Your Order</h1>
           <p className="text-gray-400 text-sm">
-            {planLabel} — <span className="text-green-400 font-semibold">${amount}</span>
+            {planLabel} — <span className="text-amber-400 font-semibold">${amount}</span>
           </p>
         </div>
 
@@ -208,8 +208,8 @@ function CheckoutContent() {
         {step === "contact" && (
           <div className="bg-gray-900/40 backdrop-blur-xl border border-gray-800/50 rounded-xl p-6 shadow-xl">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-9 h-9 rounded-full bg-green-500/10 flex items-center justify-center">
-                <Mail className="w-4 h-4 text-green-400" />
+              <div className="w-9 h-9 rounded-full bg-amber-500/10 flex items-center justify-center">
+                <Mail className="w-4 h-4 text-amber-400" />
               </div>
               <div>
                 <h2 className="text-base font-bold text-white">Contact Information</h2>
@@ -233,7 +233,7 @@ function CheckoutContent() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your@email.com"
-                  className="w-full px-3 py-2.5 bg-gray-800/50 border border-gray-700/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 text-white placeholder-gray-500 transition-all text-sm"
+                  className="w-full px-3 py-2.5 bg-gray-800/50 border border-gray-700/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500/50 text-white placeholder-gray-500 transition-all text-sm"
                 />
               </div>
               <div>
@@ -245,11 +245,11 @@ function CheckoutContent() {
                   value={phoneOrTelegram}
                   onChange={(e) => setPhoneOrTelegram(e.target.value)}
                   placeholder="+1234567890 or @username"
-                  className="w-full px-3 py-2.5 bg-gray-800/50 border border-gray-700/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 text-white placeholder-gray-500 transition-all text-sm"
+                  className="w-full px-3 py-2.5 bg-gray-800/50 border border-gray-700/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500/50 text-white placeholder-gray-500 transition-all text-sm"
                 />
               </div>
-              <div className="flex items-start gap-2.5 p-3 bg-green-500/5 border border-green-500/10 rounded-lg">
-                <Shield className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
+              <div className="flex items-start gap-2.5 p-3 bg-amber-500/5 border border-amber-500/10 rounded-lg">
+                <Shield className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
                 <p className="text-xs text-gray-300">
                   Your information is encrypted and secure. We&apos;ll use this to deliver your
                   license and provide support.
@@ -260,7 +260,7 @@ function CheckoutContent() {
             <button
               onClick={handleContinue}
               disabled={!email.includes("@") || !phoneOrTelegram.trim()}
-              className="w-full py-2.5 rounded-lg font-semibold text-sm transition-all shadow-md disabled:bg-gray-800 disabled:text-gray-500 disabled:cursor-not-allowed disabled:border disabled:border-gray-700/50 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white shadow-green-500/20 hover:shadow-green-500/30 hover:scale-[1.01]"
+              className="w-full py-2.5 rounded-lg font-semibold text-sm transition-all shadow-md disabled:bg-gray-800 disabled:text-gray-500 disabled:cursor-not-allowed disabled:border disabled:border-gray-700/50 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white shadow-amber-500/20 hover:shadow-amber-500/30 hover:scale-[1.01]"
             >
               Continue to Payment
             </button>
@@ -305,7 +305,7 @@ function CheckoutContent() {
                     onClick={() => setSelectedCrypto(c)}
                     className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border ${
                       selectedCrypto === c
-                        ? "bg-green-500/20 border-green-500/60 text-green-300"
+                        ? "bg-amber-500/20 border-amber-500/60 text-amber-300"
                         : "bg-gray-800/60 border-gray-700/50 text-gray-400 hover:border-gray-600 hover:text-gray-200"
                     }`}
                   >
@@ -326,7 +326,7 @@ function CheckoutContent() {
                       onClick={() => setSelectedChain(ch)}
                       className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border ${
                         selectedChain === ch
-                          ? "bg-green-500/20 border-green-500/60 text-green-300"
+                          ? "bg-amber-500/20 border-amber-500/60 text-amber-300"
                           : "bg-gray-800/60 border-gray-700/50 text-gray-400 hover:border-gray-600 hover:text-gray-200"
                       }`}
                     >
@@ -343,7 +343,7 @@ function CheckoutContent() {
                 <p className="text-xs text-gray-400">Send exactly</p>
                 <button
                   onClick={handleCopyAmount}
-                  className="flex items-center gap-1 text-xs text-green-400 hover:text-green-300 transition-colors"
+                  className="flex items-center gap-1 text-xs text-amber-400 hover:text-amber-300 transition-colors"
                 >
                   {copiedAmount ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
                   {copiedAmount ? "Copied!" : "Copy"}
@@ -351,7 +351,7 @@ function CheckoutContent() {
               </div>
               <p className="text-2xl font-bold text-white">
                 {getCryptoAmount()}{" "}
-                <span className="text-green-400 text-base">
+                <span className="text-amber-400 text-base">
                   {selectedCrypto === "USDT" ? `USDT (${selectedChain})` : selectedCrypto}
                 </span>
               </p>
@@ -364,14 +364,14 @@ function CheckoutContent() {
                 <p className="text-xs font-medium text-gray-400">Send to this address</p>
                 <button
                   onClick={handleCopyAddress}
-                  className="flex items-center gap-1 text-xs text-green-400 hover:text-green-300 transition-colors"
+                  className="flex items-center gap-1 text-xs text-amber-400 hover:text-amber-300 transition-colors"
                 >
                   {copiedAddress ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
                   {copiedAddress ? "Copied!" : "Copy address"}
                 </button>
               </div>
               <div className="bg-gray-800/60 border border-gray-700/50 rounded-lg px-4 py-3">
-                <p className="font-mono text-xs text-green-300 break-all">{getAddress()}</p>
+                <p className="font-mono text-xs text-amber-300 break-all">{getAddress()}</p>
               </div>
             </div>
 
@@ -389,7 +389,7 @@ function CheckoutContent() {
               <button
                 onClick={handleVerify}
                 disabled={verifying || verified}
-                className="w-full py-3 rounded-lg font-semibold text-sm transition-all bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white shadow-lg shadow-green-500/20 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="w-full py-3 rounded-lg font-semibold text-sm transition-all bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white shadow-lg shadow-amber-500/20 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {verifying ? (
                   <>

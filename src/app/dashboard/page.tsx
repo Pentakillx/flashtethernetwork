@@ -65,7 +65,7 @@ function StatusBadge({ status }: { status: string }) {
   const base = "inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium";
   if (status === "active" || status === "completed")
     return (
-      <span className={`${base} bg-emerald-500/20 text-emerald-400`}>
+      <span className={`${base} bg-amber-500/20 text-amber-400`}>
         <CheckCircle className="w-3 h-3" />
         {status}
       </span>
@@ -144,7 +144,7 @@ export default function DashboardPage() {
             {hasActiveLicense && (
               <button
                 onClick={() => router.push("/")}
-                className="flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-lg transition-all"
+                className="flex items-center gap-2 px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white text-sm font-semibold rounded-lg transition-all"
               >
                 <Zap className="w-4 h-4" />
                 Open Software
@@ -170,7 +170,7 @@ export default function DashboardPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-6">
             <div className="flex items-center gap-3 mb-2">
-              <Shield className="w-5 h-5 text-emerald-400" />
+              <Shield className="w-5 h-5 text-amber-400" />
               <h3 className="text-slate-400 text-sm font-medium">Active Licenses</h3>
             </div>
             <p className="text-3xl font-bold text-white">
@@ -206,7 +206,7 @@ export default function DashboardPage() {
                   setActivateError("");
                 }}
                 placeholder="Enter your license key (e.g., XXXX-XXXX-XXXX-XXXX)"
-                className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition-colors"
+                className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-colors"
               />
               {activateError && (
                 <p className="text-red-400 text-sm mt-2">{activateError}</p>
@@ -215,7 +215,7 @@ export default function DashboardPage() {
             <button
               type="submit"
               disabled={!licenseKey.trim() || activating}
-              className="flex items-center gap-2 px-5 py-3 bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition-all"
+              className="flex items-center gap-2 px-5 py-3 bg-amber-600 hover:bg-amber-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition-all"
             >
               {activating ? (
                 <>
@@ -239,7 +239,7 @@ export default function DashboardPage() {
               onClick={() => setTab("licenses")}
               className={`flex-1 px-6 py-4 text-sm font-medium transition-colors ${
                 tab === "licenses"
-                  ? "text-emerald-400 border-b-2 border-emerald-500 bg-slate-700/30"
+                  ? "text-amber-400 border-b-2 border-amber-500 bg-slate-700/30"
                   : "text-slate-400 hover:text-slate-300"
               }`}
             >
@@ -249,7 +249,7 @@ export default function DashboardPage() {
               onClick={() => setTab("transactions")}
               className={`flex-1 px-6 py-4 text-sm font-medium transition-colors ${
                 tab === "transactions"
-                  ? "text-emerald-400 border-b-2 border-emerald-500 bg-slate-700/30"
+                  ? "text-amber-400 border-b-2 border-amber-500 bg-slate-700/30"
                   : "text-slate-400 hover:text-slate-300"
               }`}
             >
@@ -266,7 +266,7 @@ export default function DashboardPage() {
                   <p className="text-slate-400 text-sm">No licenses yet.</p>
                   <button
                     onClick={() => router.push("/#packages")}
-                    className="mt-3 text-emerald-400 hover:text-emerald-300 text-sm transition-colors"
+                    className="mt-3 text-amber-400 hover:text-amber-300 text-sm transition-colors"
                   >
                     Browse plans →
                   </button>
@@ -302,7 +302,7 @@ export default function DashboardPage() {
                       {lic.is_activated && lic.status === "active" && (
                         <button
                           onClick={() => router.push("/")}
-                          className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-600/20 hover:bg-emerald-600/40 border border-emerald-500/30 text-emerald-400 text-xs font-medium rounded-lg transition-all"
+                          className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-600/20 hover:bg-amber-600/40 border border-amber-500/30 text-amber-400 text-xs font-medium rounded-lg transition-all"
                         >
                           <Zap className="w-3 h-3" />
                           Open Software
@@ -363,7 +363,7 @@ export default function DashboardPage() {
         <div className="mt-6 text-center">
           <button
             onClick={() => router.push("/#packages")}
-            className="text-sm text-slate-400 hover:text-emerald-400 transition-colors"
+            className="text-sm text-slate-400 hover:text-amber-400 transition-colors"
           >
             Need a new license? Browse plans →
           </button>

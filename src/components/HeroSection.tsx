@@ -38,23 +38,23 @@ export function HeroSection() {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 md:py-20">
         <div className="max-w-2xl">
           {/* Badge */}
-          <div className="inline-flex items-center px-3 py-1.5 bg-green-500/15 border border-green-500/25 rounded-full text-green-400 text-xs font-medium mb-6">
+          <div className="inline-flex items-center px-3 py-1.5 bg-amber-500/15 border border-amber-500/25 rounded-full text-amber-400 text-xs font-medium mb-6">
             <Zap className="w-3.5 h-3.5 mr-1.5" />
-            Flash USDT Sender
+            FlashTether NETWORK
           </div>
 
           {/* Headline */}
           <h1 className="text-4xl md:text-5xl font-bold leading-[1.1] tracking-tight mb-5">
             <span className="text-white">Instant USDT</span>
             <br />
-            <span className="bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-amber-400 to-amber-500 bg-clip-text text-transparent">
               Flash Transfers
             </span>
           </h1>
 
           {/* Description */}
           <p className="text-base md:text-lg text-gray-400 max-w-lg leading-relaxed mb-8">
-            The best Flash USDT sending software for executing USDT flash
+            The best FlashTether sending software for executing USDT flash
             transfers with security, real time monitoring, and 99.9% success
             rate.
           </p>
@@ -63,7 +63,7 @@ export function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-3 mb-10">
             <button
               onClick={() => scrollTo("packages")}
-              className="group inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-lg bg-green-500 hover:bg-green-600 text-white transition-all hover:shadow-lg hover:shadow-green-500/25"
+              className="group inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-lg bg-amber-500 hover:bg-amber-600 text-white transition-all hover:shadow-lg hover:shadow-amber-500/25"
             >
               Get License
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -80,21 +80,21 @@ export function HeroSection() {
           <div className="grid grid-cols-3 gap-6 max-w-md">
             <div>
               <div className="flex items-center gap-1.5 mb-0.5">
-                <Shield className="w-3.5 h-3.5 text-green-500" />
+                <Shield className="w-3.5 h-3.5 text-amber-500" />
                 <span className="text-lg font-bold text-white">AES-256</span>
               </div>
               <span className="text-xs text-gray-500">Encryption</span>
             </div>
             <div>
               <div className="flex items-center gap-1.5 mb-0.5">
-                <Clock className="w-3.5 h-3.5 text-green-500" />
+                <Clock className="w-3.5 h-3.5 text-amber-500" />
                 <span className="text-lg font-bold text-white">&lt;3s</span>
               </div>
               <span className="text-xs text-gray-500">Execution</span>
             </div>
             <div>
               <div className="flex items-center gap-1.5 mb-0.5">
-                <TrendingUp className="w-3.5 h-3.5 text-green-500" />
+                <TrendingUp className="w-3.5 h-3.5 text-amber-500" />
                 <span className="text-lg font-bold text-white">
                   {Math.floor(counter)}M+
                 </span>
