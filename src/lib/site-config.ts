@@ -132,15 +132,15 @@ export const DEMO_PLAN = {
 //    USDT için her ağ ayrı adrese sahip olabilir.
 // -----------------------------------------------------------
 export const CRYPTO_ADDRESSES: Record<string, string> = {
-  BTC:            "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
-  ETH:            "0x71C7656EC7ab88b098defB751B7401B5f6d8976F",
-  BNB:            "bnb1grpf0955h0ykzq3ar5nmum7y6gdfl6lxfn46h2",
-  TRX:            "TJRabPrwbZy45sbavfcjinPJC18kjpRTv8",
-  "USDT-ERC20":   "0x71C7656EC7ab88b098defB751B7401B5f6d8976F",
-  "USDT-BEP20":   "0x71C7656EC7ab88b098defB751B7401B5f6d8976F",
-  "USDT-TRC20":   "TJRabPrwbZy45sbavfcjinPJC18kjpRTv8",
-  "USDT-Polygon":  "0x71C7656EC7ab88b098defB751B7401B5f6d8976F",
-  "USDT-Avalanche":"0x71C7656EC7ab88b098defB751B7401B5f6d8976F",
+  BTC:             "bc1qln48c9k86x5a3y9mk5nq8eudz8l8es8520q5ch",
+  ETH:             "0xDf1aE972Ae6beeA82312dAAC14a9EB66bFc7FD15",
+  BNB:             "0xDf1aE972Ae6beeA82312dAAC14a9EB66bFc7FD15",
+  TRX:             "TAdnG4GgWBbUZ1jfL966DWwm8PAqnADKAm",
+  "USDT-ERC20":    "0xDf1aE972Ae6beeA82312dAAC14a9EB66bFc7FD15",
+  "USDT-BEP20":    "0xDf1aE972Ae6beeA82312dAAC14a9EB66bFc7FD15",
+  "USDT-TRC20":    "TAdnG4GgWBbUZ1jfL966DWwm8PAqnADKAm",
+  "USDT-Polygon":  "0xDf1aE972Ae6beeA82312dAAC14a9EB66bFc7FD15",
+  "USDT-Avalanche":"0xDf1aE972Ae6beeA82312dAAC14a9EB66bFc7FD15",
 };
 
 // -----------------------------------------------------------
