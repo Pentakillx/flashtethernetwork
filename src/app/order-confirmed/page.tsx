@@ -2,7 +2,7 @@
 
 import { useSearchParams, useRouter } from "next/navigation";
 import { Suspense } from "react";
-import { CheckCircle, Mail, LayoutDashboard, ArrowLeft, Zap } from "lucide-react";
+import { CheckCircle, Mail, UserPlus, ArrowLeft, Zap } from "lucide-react";
 
 function OrderConfirmedContent() {
   const [params] = [useSearchParams()];
@@ -123,11 +123,11 @@ function OrderConfirmedContent() {
             {/* Actions */}
             <div className="flex flex-col sm:flex-row gap-3 pt-1">
               <button
-                onClick={() => router.push("/dashboard")}
-                className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-semibold rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-amber-900/30"
+                onClick={() => router.push(`/activate${email ? `?e=${encodeURIComponent(email)}` : ""}`)}
+                className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-white font-semibold rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-amber-900/30"
               >
-                <LayoutDashboard className="w-4 h-4" />
-                Go to Dashboard
+                <UserPlus className="w-4 h-4" />
+                Activate License
               </button>
               <button
                 onClick={() => router.push("/")}
