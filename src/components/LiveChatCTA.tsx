@@ -3,10 +3,13 @@
 import { useState } from "react";
 import { MessageCircle, X } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useT } from "@/lib/i18n";
 
 export function LiveChatCTA() {
   const router = useRouter();
   const [open, setOpen] = useState(false);
+  const { t } = useT();
+  const lc = t.liveChat;
 
   const handleStartChat = () => {
     router.push("/checkout?plan=live-chat&duration=instant");
@@ -19,24 +22,18 @@ export function LiveChatCTA() {
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse" />
-              <span className="text-white text-xs font-semibold">Support Online</span>
+              <span className="text-white text-xs font-semibold">{lc.online}</span>
             </div>
-            <button
-              onClick={() => setOpen(false)}
-              className="text-gray-500 hover:text-gray-300 transition-colors"
-            >
+            <button onClick={() => setOpen(false)} className="text-gray-500 hover:text-gray-300 transition-colors">
               <X className="w-3.5 h-3.5" />
             </button>
           </div>
-          <p className="text-gray-400 text-xs mb-3 leading-relaxed">
-            Get instant help from our team. Response in under 5 minutes (included in all
-            licenses)
-          </p>
+          <p className="text-gray-400 text-xs mb-3 leading-relaxed">{lc.description}</p>
           <button
             onClick={handleStartChat}
             className="w-full py-2 bg-amber-500 hover:bg-amber-600 text-white text-xs font-semibold rounded-lg transition-colors"
           >
-            Start Chat $2
+            {lc.startChat}
           </button>
         </div>
       )}
@@ -49,11 +46,7 @@ export function LiveChatCTA() {
             : "bg-amber-500 hover:bg-amber-600 hover:scale-110 shadow-amber-500/40"
         }`}
       >
-        {open ? (
-          <X className="w-5 h-5 text-white" />
-        ) : (
-          <MessageCircle className="w-5 h-5 text-white" />
-        )}
+        {open ? <X className="w-5 h-5 text-white" /> : <MessageCircle className="w-5 h-5 text-white" />}
       </button>
     </div>
   );

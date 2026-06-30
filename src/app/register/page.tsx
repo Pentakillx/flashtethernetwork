@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Mail, Lock, User, Ticket, UserPlus } from "lucide-react";
+import { useT } from "@/lib/i18n";
 
 export default function RegisterPage() {
   const [accountCode, setAccountCode] = useState("");
@@ -14,26 +15,21 @@ export default function RegisterPage() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const { t } = useT();
+  const r = t.register;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
 
-    if (!accountCode.trim()) {
-      setError("Account code is required");
-      return;
-    }
-    if (password !== confirmPassword) {
-      setError("Passwords do not match");
-      return;
-    }
-    if (password.length < 6) {
-      setError("Password must be at least 6 characters");
-      return;
-    }
+    if (!accountCode.trim()) { setError(r.errCodeRequired); return; }
+    if (password !== confirmPassword) { setError(r.errPasswordMatch); return; }
+    if (password.length < 6) { setError(r.errPasswordShort); return; }
 
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1000));
+    await new Promise((res) => setTimeout(res, 1000));
+    localStorage.setItem("cv_user_email", email);
+    localStorage.setItem("cv_user_name", fullName);
     router.push("/dashboard");
   };
 
@@ -44,8 +40,8 @@ export default function RegisterPage() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-400 to-amber-600 rounded-2xl mb-4">
             <UserPlus className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-3xl font-bold text-white mb-2">Create Account</h1>
-          <p className="text-slate-400">Sign up to get started</p>
+          <h1 className="text-3xl font-bold text-white mb-2">{r.title}</h1>
+          <p className="text-slate-400">{r.subtitle}</p>
         </div>
 
         <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8">
@@ -58,7 +54,7 @@ export default function RegisterPage() {
 
             <div>
               <label htmlFor="accountCode" className="block text-sm font-medium text-slate-300 mb-2">
-                Account Code
+                {r.accountCode}
               </label>
               <div className="relative">
                 <Ticket className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -72,14 +68,12 @@ export default function RegisterPage() {
                   required
                 />
               </div>
-              <p className="text-xs text-slate-500 mt-1">
-                Enter the unique code provided by the administrator
-              </p>
+              <p className="text-xs text-slate-500 mt-1">{r.accountCodeHint}</p>
             </div>
 
             <div>
               <label htmlFor="fullName" className="block text-sm font-medium text-slate-300 mb-2">
-                Full Name
+                {r.fullName}
               </label>
               <div className="relative">
                 <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -97,7 +91,7 @@ export default function RegisterPage() {
 
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
-                Email Address
+                {r.email}
               </label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -115,7 +109,7 @@ export default function RegisterPage() {
 
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-slate-300 mb-2">
-                Password
+                {r.password}
               </label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -125,18 +119,15 @@ export default function RegisterPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full pl-11 pr-4 py-3 bg-slate-900/50 border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-colors"
-                  placeholder="Minimum 6 characters"
+                  placeholder={r.passwordPlaceholder}
                   required
                 />
               </div>
             </div>
 
             <div>
-              <label
-                htmlFor="confirmPassword"
-                className="block text-sm font-medium text-slate-300 mb-2"
-              >
-                Confirm Password
+              <label htmlFor="confirmPassword" className="block text-sm font-medium text-slate-300 mb-2">
+                {r.confirmPassword}
               </label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -146,7 +137,7 @@ export default function RegisterPage() {
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   className="w-full pl-11 pr-4 py-3 bg-slate-900/50 border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-colors"
-                  placeholder="Re-enter your password"
+                  placeholder={r.confirmPlaceholder}
                   required
                 />
               </div>
@@ -157,13 +148,13 @@ export default function RegisterPage() {
               disabled={loading}
               className="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-semibold rounded-lg transition-all disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              {loading ? "Creating Account..." : "Create Account"}
+              {loading ? r.submitting : r.submit}
             </button>
           </form>
 
           <div className="mt-4 text-center">
             <Link href="/" className="text-slate-400 hover:text-slate-300 text-sm transition-colors">
-              Back to Home
+              {r.backHome}
             </Link>
           </div>
         </div>

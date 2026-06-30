@@ -1,10 +1,22 @@
 import { NextRequest, NextResponse } from "next/server";
 
-function generateLicenseCode(): string {
+// Plan + duration → [daysCode, balanceCode]
+const PLAN_TIER_MAP: Record<string, Record<string, [string, string]>> = {
+  basic:    { "1 day": ["1D",  "2K"],   "7 days": ["7D",  "10K"],  "1 month": ["30D", "50K"]  },
+  infinity: { "1 day": ["1D",  "15K"],  "7 days": ["7D",  "50K"],  "1 month": ["30D", "150K"] },
+  master:   { "1 day": ["1D",  "350K"], "7 days": ["7D",  "1M"],   "1 month": ["30D", "50M"]  },
+  demo:     { "1 hour": ["1D", "750"] },
+};
+
+function generateLicenseCode(planKey: string, duration: string): string {
   const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  const part = (len: number) =>
-    Array.from({ length: len }, () => chars[Math.floor(Math.random() * chars.length)]).join("");
-  return `FTN-${part(4)}-${part(4)}`;
+  const rand5 = Array.from({ length: 5 }, () => chars[Math.floor(Math.random() * chars.length)]).join("");
+  const tier = PLAN_TIER_MAP[planKey]?.[duration];
+  if (!tier) {
+    // Fallback for unknown plans — basic format
+    return `FTN-30D-2K-${rand5}`;
+  }
+  return `FTN-${tier[0]}-${tier[1]}-${rand5}`;
 }
 
 export async function POST(req: NextRequest) {
@@ -30,7 +42,7 @@ export async function POST(req: NextRequest) {
 
   const chain = body.chain ? ` (${body.chain})` : "";
   const paymentMethod = `${body.crypto}${chain}`;
-  const licenseCode = generateLicenseCode();
+  const licenseCode = generateLicenseCode(body.plan, body.duration);
 
   const message = [
     "🔔 *Yeni Ödeme Bildirimi*",

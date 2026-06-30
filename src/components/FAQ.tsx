@@ -2,67 +2,25 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-
-const FAQ_ITEMS = [
-  {
-    question: "What is the FlashTether NETWORK and how does it work?",
-    answer:
-      "FlashTether is enterprise level software that enables instant USDT transfers to any compatible wallet. After purchasing a license, you receive API access and a dashboard to execute flash transfers with configurable parameters including destination wallet, amount, and network selection followed by a tutorial video that explains everything.",
-  },
-  {
-    question: "Is FlashTether transferable between wallets?",
-    answer:
-      "Yes. Once transferred, the recipient can freely move the USDT to any other wallet. There is no limit on the number of subsequent transfers.",
-  },
-  {
-    question: "What is the validity period of flashed USDT?",
-    answer:
-      "Flashed USDT has a validity period of 370 days from the date of the transaction, but we have licenses with limited validity period below that range for short term operations.",
-  },
-  {
-    question: "Which networks are supported?",
-    answer:
-      "FlashTether supports Ethereum Mainnet, Binance Smart Chain, Polygon (Matic), Tron Network, and Avalanche. Network selection is available in the software dashboard during transfer execution.",
-  },
-  {
-    question: "Can FlashTether be used for P2P transactions?",
-    answer:
-      "Yes. P2P is one of the most common and recommended use cases for FlashTether transfers.",
-  },
-  {
-    question: "How do I receive my license after purchase?",
-    answer:
-      "After payment confirmation, your license keys, API documentation, and step-by-step setup guide are delivered to the email address and phone/Telegram contact you provided during checkout.",
-  },
-  {
-    question: "What happens after my license expires?",
-    answer:
-      "When your license expires, you can renew it by purchasing a new plan. All previously executed transfers remain valid for their full validity period regardless of license status.",
-  },
-  {
-    question: "How do I get technical support?",
-    answer:
-      "Technical support is available as a premium add-on during checkout for a $2 fee. This gives you direct access to our support team via E-mail, WhatsApp and Telegram with guaranteed response times under 5 minutes.",
-  },
-];
+import { useT } from "@/lib/i18n";
 
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const { t } = useT();
+  const f = t.faq;
 
   return (
     <section id="faq" className="py-14 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <h2 className="text-2xl md:text-3xl font-bold mb-3 bg-gradient-to-r from-white to-amber-300 bg-clip-text text-transparent">
-            Frequently Asked Questions
+            {f.title}
           </h2>
-          <p className="text-gray-400 text-sm">
-            Common questions about FlashTether licensing and operations.
-          </p>
+          <p className="text-gray-400 text-sm">{f.subtitle}</p>
         </div>
 
         <div className="space-y-2">
-          {FAQ_ITEMS.map((item, index) => (
+          {f.items.map((item, index) => (
             <div
               key={index}
               className={`border rounded-xl transition-all duration-200 ${

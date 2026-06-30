@@ -3,10 +3,13 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, LogIn } from "lucide-react";
+import { useT } from "@/lib/i18n";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { lang, setLang, t } = useT();
+  const nav = t.nav;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -18,6 +21,27 @@ export function Navbar() {
     setMenuOpen(false);
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const LangToggle = () => (
+    <div className="flex items-center gap-1 bg-gray-800/60 border border-gray-700/50 rounded-lg p-0.5">
+      <button
+        onClick={() => setLang("en")}
+        className={`px-2 py-1 rounded text-xs font-semibold transition-all ${
+          lang === "en" ? "bg-amber-500 text-white" : "text-gray-400 hover:text-white"
+        }`}
+      >
+        EN
+      </button>
+      <button
+        onClick={() => setLang("tr")}
+        className={`px-2 py-1 rounded text-xs font-semibold transition-all ${
+          lang === "tr" ? "bg-amber-500 text-white" : "text-gray-400 hover:text-white"
+        }`}
+      >
+        TR
+      </button>
+    </div>
+  );
 
   return (
     <nav
@@ -44,57 +68,40 @@ export function Navbar() {
           </div>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-8">
-            <button
-              onClick={() => scrollTo("demo")}
-              className="text-sm text-gray-400 hover:text-white transition-colors"
-            >
-              Software
+          <div className="hidden md:flex items-center gap-6">
+            <button onClick={() => scrollTo("demo")} className="text-sm text-gray-400 hover:text-white transition-colors">
+              {nav.software}
             </button>
-            <button
-              onClick={() => scrollTo("packages")}
-              className="text-sm text-gray-400 hover:text-white transition-colors"
-            >
-              Licenses
+            <button onClick={() => scrollTo("packages")} className="text-sm text-gray-400 hover:text-white transition-colors">
+              {nav.licenses}
             </button>
-            <button
-              onClick={() => scrollTo("faq")}
-              className="text-sm text-gray-400 hover:text-white transition-colors"
-            >
-              FAQ
+            <button onClick={() => scrollTo("faq")} className="text-sm text-gray-400 hover:text-white transition-colors">
+              {nav.faq}
             </button>
-            <Link
-              href="/blog"
-              className="text-sm text-gray-400 hover:text-white transition-colors"
-            >
-              Blog
+            <Link href="/blog" className="text-sm text-gray-400 hover:text-white transition-colors">
+              {nav.blog}
             </Link>
+            <LangToggle />
             <Link
               href="/login"
               className="flex items-center gap-1.5 text-sm text-gray-400 hover:text-white border border-gray-700 hover:border-gray-500 px-4 py-2 rounded-lg transition-all"
             >
               <LogIn className="w-4 h-4" />
-              Member Login
+              {nav.memberLogin}
             </Link>
             <button
               onClick={() => scrollTo("packages")}
               className="px-5 py-2 text-sm rounded-lg bg-amber-500 hover:bg-amber-600 text-white font-medium transition-all"
             >
-              Get Started
+              {nav.getStarted}
             </button>
           </div>
 
           {/* Mobile hamburger */}
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="text-gray-300 hover:text-white"
-            >
-              {menuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
+          <div className="md:hidden flex items-center gap-3">
+            <LangToggle />
+            <button onClick={() => setMenuOpen(!menuOpen)} className="text-gray-300 hover:text-white">
+              {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
@@ -104,44 +111,24 @@ export function Navbar() {
       {menuOpen && (
         <div className="md:hidden bg-gray-950/95 backdrop-blur-md border-b border-gray-800/50">
           <div className="px-4 py-4 space-y-2">
-            <button
-              onClick={() => scrollTo("demo")}
-              className="block w-full text-left px-3 py-2 text-gray-300 hover:text-white rounded-lg hover:bg-gray-800/50"
-            >
-              Software
+            <button onClick={() => scrollTo("demo")} className="block w-full text-left px-3 py-2 text-gray-300 hover:text-white rounded-lg hover:bg-gray-800/50">
+              {nav.software}
             </button>
-            <button
-              onClick={() => scrollTo("packages")}
-              className="block w-full text-left px-3 py-2 text-gray-300 hover:text-white rounded-lg hover:bg-gray-800/50"
-            >
-              Licenses
+            <button onClick={() => scrollTo("packages")} className="block w-full text-left px-3 py-2 text-gray-300 hover:text-white rounded-lg hover:bg-gray-800/50">
+              {nav.licenses}
             </button>
-            <button
-              onClick={() => scrollTo("faq")}
-              className="block w-full text-left px-3 py-2 text-gray-300 hover:text-white rounded-lg hover:bg-gray-800/50"
-            >
-              FAQ
+            <button onClick={() => scrollTo("faq")} className="block w-full text-left px-3 py-2 text-gray-300 hover:text-white rounded-lg hover:bg-gray-800/50">
+              {nav.faq}
             </button>
-            <Link
-              href="/blog"
-              onClick={() => setMenuOpen(false)}
-              className="block w-full text-left px-3 py-2 text-gray-300 hover:text-white rounded-lg hover:bg-gray-800/50"
-            >
-              Blog
+            <Link href="/blog" onClick={() => setMenuOpen(false)} className="block w-full text-left px-3 py-2 text-gray-300 hover:text-white rounded-lg hover:bg-gray-800/50">
+              {nav.blog}
             </Link>
-            <Link
-              href="/login"
-              onClick={() => setMenuOpen(false)}
-              className="flex items-center gap-2 w-full px-3 py-2 text-gray-300 hover:text-white rounded-lg hover:bg-gray-800/50 border border-gray-700/50"
-            >
+            <Link href="/login" onClick={() => setMenuOpen(false)} className="flex items-center gap-2 w-full px-3 py-2 text-gray-300 hover:text-white rounded-lg hover:bg-gray-800/50 border border-gray-700/50">
               <LogIn className="w-4 h-4" />
-              Member Login
+              {nav.memberLogin}
             </Link>
-            <button
-              onClick={() => scrollTo("packages")}
-              className="block w-full text-center px-3 py-2 mt-1 rounded-lg bg-amber-500 hover:bg-amber-600 text-white font-medium"
-            >
-              Get Started
+            <button onClick={() => scrollTo("packages")} className="block w-full text-center px-3 py-2 mt-1 rounded-lg bg-amber-500 hover:bg-amber-600 text-white font-medium">
+              {nav.getStarted}
             </button>
           </div>
         </div>

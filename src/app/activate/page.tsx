@@ -3,12 +3,15 @@
 import { useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Mail, Lock, User, Ticket, Zap, LogIn, UserPlus } from "lucide-react";
+import { useT } from "@/lib/i18n";
 
 type Tab = "register" | "login";
 
 function ActivateContent() {
   const params = useSearchParams();
   const router = useRouter();
+  const { t } = useT();
+  const a = t.activate;
 
   const prefillEmail = params.get("e") ?? "";
   const prefillCode = params.get("code") ?? "";
@@ -34,15 +37,15 @@ function ActivateContent() {
     setError("");
 
     if (!accountCode.trim()) {
-      setError("Account code is required.");
+      setError(a.errCodeRequired);
       return;
     }
     if (password !== confirmPassword) {
-      setError("Passwords do not match.");
+      setError(a.errPasswordMatch);
       return;
     }
     if (password.length < 6) {
-      setError("Password must be at least 6 characters.");
+      setError(a.errPasswordShort);
       return;
     }
 
@@ -51,11 +54,7 @@ function ActivateContent() {
       await fetch("/api/notify-register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          fullName,
-          email: regEmail,
-          accountCode,
-        }),
+        body: JSON.stringify({ fullName, email: regEmail, accountCode }),
       });
     } catch {
       // Telegram hatası akışı durdurmasın
@@ -69,23 +68,23 @@ function ActivateContent() {
     e.preventDefault();
     setError("");
     if (!loginEmail || !loginPassword) {
-      setError("Please fill in all fields.");
+      setError(a.errFillAll);
       return;
     }
     setLoading(true);
     await new Promise((r) => setTimeout(r, 800));
-    router.push("/pending?type=login");
+    localStorage.setItem("cv_user_email", loginEmail);
+    localStorage.setItem("cv_user_name", loginEmail.split("@")[0]);
+    router.push("/dashboard");
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 flex items-center justify-center px-4 py-12">
-      {/* Ambient glow */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[400px] bg-amber-500/10 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 w-full max-w-md">
-        {/* Brand */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-2 mb-5">
             <span className="text-2xl">⚡</span>
@@ -95,13 +94,10 @@ function ActivateContent() {
             </span>
             <span className="text-2xl">🌐</span>
           </div>
-          <h1 className="text-2xl font-bold text-white mb-1">Activate Your License</h1>
-          <p className="text-gray-400 text-sm">
-            Create an account or sign in to complete your purchase
-          </p>
+          <h1 className="text-2xl font-bold text-white mb-1">{a.title}</h1>
+          <p className="text-gray-400 text-sm">{a.subtitle}</p>
         </div>
 
-        {/* Tab switcher */}
         <div className="flex bg-gray-900/60 border border-gray-800 rounded-xl p-1 mb-6">
           <button
             onClick={() => { setTab("register"); setError(""); }}
@@ -112,7 +108,7 @@ function ActivateContent() {
             }`}
           >
             <UserPlus className="w-4 h-4" />
-            New User
+            {a.newUser}
           </button>
           <button
             onClick={() => { setTab("login"); setError(""); }}
@@ -123,7 +119,7 @@ function ActivateContent() {
             }`}
           >
             <LogIn className="w-4 h-4" />
-            Already Registered
+            {a.alreadyRegistered}
           </button>
         </div>
 
@@ -136,10 +132,9 @@ function ActivateContent() {
 
           {tab === "register" ? (
             <form onSubmit={handleRegister} className="space-y-4">
-              {/* Account Code */}
               <div>
                 <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5">
-                  License / Account Code
+                  {a.licenseCodeLabel}
                 </label>
                 <div className="relative">
                   <Ticket className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-amber-500" />
@@ -148,19 +143,16 @@ function ActivateContent() {
                     value={accountCode}
                     onChange={(e) => setAccountCode(e.target.value.toUpperCase())}
                     className="w-full pl-10 pr-4 py-3 bg-gray-800/60 border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500/30 transition-all uppercase text-sm"
-                    placeholder="FTN-XXXX-XXXX"
+                    placeholder={a.licenseCodePlaceholder}
                     required
                   />
                 </div>
-                <p className="text-xs text-gray-600 mt-1">
-                  Sent to you by our team via email or Telegram/WhatsApp after payment is verified
-                </p>
+                <p className="text-xs text-gray-600 mt-1">{a.licenseCodeHint}</p>
               </div>
 
-              {/* Full Name */}
               <div>
                 <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5">
-                  Full Name
+                  {a.fullName}
                 </label>
                 <div className="relative">
                   <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
@@ -169,16 +161,15 @@ function ActivateContent() {
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     className="w-full pl-10 pr-4 py-3 bg-gray-800/60 border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500/30 transition-all text-sm"
-                    placeholder="John Doe"
+                    placeholder={a.fullNamePlaceholder}
                     required
                   />
                 </div>
               </div>
 
-              {/* Email */}
               <div>
                 <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5">
-                  Email Address
+                  {a.email}
                 </label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
@@ -187,17 +178,16 @@ function ActivateContent() {
                     value={regEmail}
                     onChange={(e) => setRegEmail(e.target.value)}
                     className="w-full pl-10 pr-4 py-3 bg-gray-800/60 border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500/30 transition-all text-sm"
-                    placeholder="you@example.com"
+                    placeholder={a.emailPlaceholder}
                     required
                   />
                 </div>
               </div>
 
-              {/* Password */}
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5">
-                    Password
+                    {a.password}
                   </label>
                   <div className="relative">
                     <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
@@ -206,14 +196,14 @@ function ActivateContent() {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       className="w-full pl-10 pr-3 py-3 bg-gray-800/60 border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500/30 transition-all text-sm"
-                      placeholder="Min. 6 chars"
+                      placeholder={a.passwordMin}
                       required
                     />
                   </div>
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5">
-                    Confirm
+                    {a.confirmPassword}
                   </label>
                   <div className="relative">
                     <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
@@ -222,7 +212,7 @@ function ActivateContent() {
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
                       className="w-full pl-10 pr-3 py-3 bg-gray-800/60 border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500/30 transition-all text-sm"
-                      placeholder="Repeat"
+                      placeholder={a.confirmRepeat}
                       required
                     />
                   </div>
@@ -237,12 +227,12 @@ function ActivateContent() {
                 {loading ? (
                   <>
                     <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    Creating Account...
+                    {a.creatingAccount}
                   </>
                 ) : (
                   <>
                     <UserPlus className="w-4 h-4" />
-                    Create Account &amp; Activate
+                    {a.createAccountBtn}
                   </>
                 )}
               </button>
@@ -251,7 +241,7 @@ function ActivateContent() {
             <form onSubmit={handleLogin} className="space-y-4">
               <div>
                 <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5">
-                  Email Address
+                  {a.email}
                 </label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
@@ -260,7 +250,7 @@ function ActivateContent() {
                     value={loginEmail}
                     onChange={(e) => setLoginEmail(e.target.value)}
                     className="w-full pl-10 pr-4 py-3 bg-gray-800/60 border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500/30 transition-all text-sm"
-                    placeholder="you@example.com"
+                    placeholder={a.emailPlaceholder}
                     required
                   />
                 </div>
@@ -268,7 +258,7 @@ function ActivateContent() {
 
               <div>
                 <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5">
-                  Password
+                  {a.password}
                 </label>
                 <div className="relative">
                   <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
@@ -277,7 +267,7 @@ function ActivateContent() {
                     value={loginPassword}
                     onChange={(e) => setLoginPassword(e.target.value)}
                     className="w-full pl-10 pr-4 py-3 bg-gray-800/60 border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500/30 transition-all text-sm"
-                    placeholder="Enter your password"
+                    placeholder={a.passwordEnter}
                     required
                   />
                 </div>
@@ -291,12 +281,12 @@ function ActivateContent() {
                 {loading ? (
                   <>
                     <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    Signing In...
+                    {a.signingIn}
                   </>
                 ) : (
                   <>
                     <LogIn className="w-4 h-4" />
-                    Sign In
+                    {a.signInBtn}
                   </>
                 )}
               </button>
@@ -306,7 +296,7 @@ function ActivateContent() {
 
         <div className="mt-5 text-center flex items-center justify-center gap-2 text-gray-700 text-xs">
           <Zap className="w-3 h-3 text-amber-700" />
-          <span>FlashTether NETWORK — Secured &amp; Encrypted</span>
+          <span>{a.securityNote}</span>
         </div>
       </div>
     </div>

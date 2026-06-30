@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { SoftwareDemo } from "@/components/SoftwareDemo";
+import { OpenSoftware } from "@/components/OpenSoftware";
 import { HowToStart } from "@/components/HowToStart";
 import { LicensePackages } from "@/components/LicensePackages";
 import { FAQ } from "@/components/FAQ";
@@ -14,6 +15,7 @@ export default function Home() {
       <main>
         <HeroSection />
         <SoftwareDemo />
+        <OpenSoftware />
         <HowToStart />
         <LicensePackages />
         <FAQ />
