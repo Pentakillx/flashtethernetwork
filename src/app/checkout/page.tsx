@@ -153,9 +153,27 @@ function CheckoutContent() {
 
   const handleVerify = async () => {
     setVerifying(true);
-    await new Promise((r) => setTimeout(r, 2000));
     const orderId = `ORD-${Date.now().toString(36).toUpperCase()}`;
     const chain = selectedCrypto === "USDT" ? selectedChain : "";
+
+    // Telegram bildirimi — hata olsa bile kullanıcı akışını durdurmaz
+    fetch("/api/notify", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        orderId,
+        plan: planKey,
+        duration,
+        amount,
+        email,
+        phone: phoneOrTelegram,
+        crypto: selectedCrypto,
+        chain,
+        address: getAddress(),
+      }),
+    }).catch(() => {/* sessizce geç */});
+
+    await new Promise((r) => setTimeout(r, 1500));
     router.push(
       `/order-confirmed?oid=${orderId}&plan=${planKey}&dur=${encodeURIComponent(duration)}&amt=${amount}&c=${selectedCrypto}&ch=${chain}&e=${encodeURIComponent(email)}`
     );
