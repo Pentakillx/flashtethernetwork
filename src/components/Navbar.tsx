@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Zap, Menu, X } from "lucide-react";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -32,10 +33,14 @@ export function Navbar() {
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <Zap className="h-6 w-6 text-green-500" />
-              <span className="ml-2 text-lg font-bold text-white">
-                Flash<span className="text-green-500">USDT</span>
-              </span>
+              <Image
+                src="/logo.png"
+                alt="FlashUSDT"
+                width={140}
+                height={40}
+                className="h-10 w-auto object-contain"
+                priority
+              />
             </Link>
           </div>
 
