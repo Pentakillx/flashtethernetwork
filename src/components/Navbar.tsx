@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LogIn } from "lucide-react";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -69,6 +69,13 @@ export function Navbar() {
             >
               Blog
             </Link>
+            <Link
+              href="/login"
+              className="flex items-center gap-1.5 text-sm text-gray-400 hover:text-white border border-gray-700 hover:border-gray-500 px-4 py-2 rounded-lg transition-all"
+            >
+              <LogIn className="w-4 h-4" />
+              Member Login
+            </Link>
             <button
               onClick={() => scrollTo("packages")}
               className="px-5 py-2 text-sm rounded-lg bg-amber-500 hover:bg-amber-600 text-white font-medium transition-all"
@@ -122,9 +129,17 @@ export function Navbar() {
             >
               Blog
             </Link>
+            <Link
+              href="/login"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center gap-2 w-full px-3 py-2 text-gray-300 hover:text-white rounded-lg hover:bg-gray-800/50 border border-gray-700/50"
+            >
+              <LogIn className="w-4 h-4" />
+              Member Login
+            </Link>
             <button
               onClick={() => scrollTo("packages")}
-              className="block w-full text-center px-3 py-2 mt-2 rounded-lg bg-amber-500 hover:bg-amber-600 text-white font-medium"
+              className="block w-full text-center px-3 py-2 mt-1 rounded-lg bg-amber-500 hover:bg-amber-600 text-white font-medium"
             >
               Get Started
             </button>
