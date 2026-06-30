@@ -1,20 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["300", "500", "700"],
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
-  title: "Website Clone",
-  description: "Pixel-perfect website clone",
+  title: "Flash USDT Sender - Enterprise USDT Flash Transfer Software | Get Access Now",
+  description:
+    "Flash USDT Sender v4.2 - Professional enterprise-grade software for instant USDT flash transfers across ERC20, BEP20, TRC20 networks. Licensed unlimited flashing with AES-256 encryption, real-time monitoring, 99.9% success rate, and 24/7 support.",
 };
 
 export default function RootLayout({
@@ -23,11 +20,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col font-inter bg-gray-950 text-white">
+        {children}
+      </body>
     </html>
   );
 }

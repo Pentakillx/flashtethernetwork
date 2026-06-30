@@ -1,9 +1,25 @@
+import { Navbar } from "@/components/Navbar";
+import { HeroSection } from "@/components/HeroSection";
+import { SoftwareDemo } from "@/components/SoftwareDemo";
+import { HowToStart } from "@/components/HowToStart";
+import { LicensePackages } from "@/components/LicensePackages";
+import { FAQ } from "@/components/FAQ";
+import { LiveChatCTA } from "@/components/LiveChatCTA";
+import { Footer } from "@/components/Footer";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center">
-      <p className="text-muted-foreground">
-        Clone target not yet built. Run <code className="font-mono text-foreground">/clone-website</code> to start.
-      </p>
-    </main>
+    <div className="min-h-screen bg-gradient-to-b from-green-900/50 via-green-900/30 to-gray-950 text-white">
+      <Navbar />
+      <main>
+        <HeroSection />
+        <SoftwareDemo />
+        <HowToStart />
+        <LicensePackages />
+        <FAQ />
+      </main>
+      <Footer />
+      <LiveChatCTA />
+    </div>
   );
 }
