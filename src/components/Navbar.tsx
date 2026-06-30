@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 export function Navbar() {
@@ -32,15 +31,15 @@ export function Navbar() {
         <div className="flex justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/" className="flex items-center">
-              <Image
-                src="/logo.png"
-                alt="FlashUSDT"
-                width={56}
-                height={56}
-                className="h-14 w-auto object-contain"
-                priority
-              />
+            <Link href="/" className="flex items-center gap-2">
+              <span className="text-2xl">⚡</span>
+              <span className="text-xl font-black tracking-tight text-white">
+                Flash<span className="text-green-400">Tether</span>{" "}
+                <span className="text-sm font-semibold tracking-widest text-gray-400 uppercase">
+                  Network
+                </span>
+              </span>
+              <span className="text-xl">🌐</span>
             </Link>
           </div>
 
