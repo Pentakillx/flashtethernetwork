@@ -96,24 +96,25 @@ function OrderConfirmedContent() {
                   <ul className="text-sm text-gray-300 space-y-1.5">
                     <li className="flex items-start gap-2">
                       <span className="text-amber-400 mt-0.5">✓</span>
-                      Your license key will be sent to{" "}
+                      Our team reviews your payment and generates your personal license code
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-amber-400 mt-0.5">✓</span>
+                      Your license code will be sent to{" "}
                       {email ? (
                         <strong className="text-blue-300">{email}</strong>
                       ) : (
                         "your email address"
-                      )}
+                      )}{" "}
+                      and via Telegram/WhatsApp
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-amber-400 mt-0.5">✓</span>
-                      Delivery typically takes 5–15 minutes
+                      Delivery typically takes 5–30 minutes after payment confirmation
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-amber-400 mt-0.5">✓</span>
-                      Check your spam folder if you don&apos;t see our email
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-amber-400 mt-0.5">✓</span>
-                      24/7 support available via live chat if you need help
+                      Use the code on the next step to activate your account
                     </li>
                   </ul>
                 </div>

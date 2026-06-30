@@ -148,11 +148,13 @@ function ActivateContent() {
                     value={accountCode}
                     onChange={(e) => setAccountCode(e.target.value.toUpperCase())}
                     className="w-full pl-10 pr-4 py-3 bg-gray-800/60 border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500/30 transition-all uppercase text-sm"
-                    placeholder="e.g. FTN-XXXXXXXX"
+                    placeholder="FTN-XXXX-XXXX"
                     required
                   />
                 </div>
-                <p className="text-xs text-gray-600 mt-1">Provided by the admin after payment verification</p>
+                <p className="text-xs text-gray-600 mt-1">
+                  Sent to you by our team via email or Telegram/WhatsApp after payment is verified
+                </p>
               </div>
 
               {/* Full Name */}
