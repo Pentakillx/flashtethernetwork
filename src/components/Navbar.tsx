@@ -36,7 +36,7 @@ export function Navbar() {
               <Image
                 src="/logo.png"
                 alt="FlashUSDT"
-                width={200}
+                width={56}
                 height={56}
                 className="h-14 w-auto object-contain"
                 priority
