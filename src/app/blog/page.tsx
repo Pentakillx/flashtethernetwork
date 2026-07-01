@@ -5,13 +5,13 @@ import Link from "next/link";
 import { BookOpen, Clock, ArrowRight, Zap } from "lucide-react";
 import { blogPosts } from "@/lib/blog-posts";
 
-const CATEGORIES = ["All", "How-To Guide", "FAQ"] as const;
+const CATEGORIES = ["All", "How-To Guide", "FAQ", "Rehber", "Sık Sorulan Sorular"] as const;
 
 export default function BlogPage() {
   const [activeCategory, setActiveCategory] = useState<string>("All");
 
-  const howToGuides = blogPosts.filter((p) => p.category === "How-To Guide");
-  const faqs = blogPosts.filter((p) => p.category === "FAQ");
+  const howToGuides = blogPosts.filter((p) => p.category === "How-To Guide" || p.category === "Rehber");
+  const faqs = blogPosts.filter((p) => p.category === "FAQ" || p.category === "Sık Sorulan Sorular");
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 pt-24 pb-20">

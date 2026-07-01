@@ -11,7 +11,7 @@ export interface BlogPost {
   excerpt: string;
   date: string;
   readTime: string;
-  category: "How-To Guide" | "FAQ";
+  category: "How-To Guide" | "FAQ" | "Rehber" | "Sık Sorulan Sorular";
   content: ContentBlock[];
 }
 
@@ -264,6 +264,157 @@ export const blogPosts: BlogPost[] = [
       { type: "h2", text: "When to Contact Support" },
       { type: "ul", items: ["License key not received within 10 minutes of payment.", "Activation errors in the dashboard.", "Transfer confirmation delays.", "Questions about gas settings or network selection.", "Any unexpected behavior in the software."] },
       { type: "p", text: "For non-urgent queries, the FAQ section on the homepage covers the most common scenarios. For live operational issues, direct support via WhatsApp or Telegram is always the fastest path." },
+      { type: "cta" },
+    ],
+  },
+
+  // ── Türkçe yazılar ──────────────────────────────────────────────────────────
+
+  {
+    slug: "flash-usdt-nedir",
+    title: "Flash USDT Nedir? Kapsamlı Rehber (2026)",
+    excerpt:
+      "Flash USDT nedir, nasıl çalışır ve neden bu kadar popüler? Bu rehberde flash USDT hakkında bilmeniz gereken her şeyi bulacaksınız.",
+    date: "Temmuz 1, 2026",
+    readTime: "8 dk okuma",
+    category: "Rehber",
+    content: [
+      { type: "p", text: "Flash USDT, blockchain ağları üzerinden anında gerçekleştirilen USDT (Tether) transferlerini ifade eden bir terimdir. FlashTether NETWORK gibi kurumsal yazılımlar aracılığıyla ERC20, BEP20, TRC20, Polygon ve Avalanche ağlarında yüksek hacimli USDT işlemleri saniyeler içinde tamamlanabilmektedir." },
+      { type: "h2", text: "Flash USDT Nasıl Çalışır?" },
+      { type: "p", text: "Flash USDT yazılımları, blockchain ağlarına doğrudan bağlanarak işlem yayınlar. Kullanıcı; hedef cüzdan adresini, transfer miktarını ve ağı seçer. Yazılım bu parametrelerle bir işlem oluşturur ve ağa gönderir. İşlem onayı genellikle birkaç saniye ile birkaç dakika arasında tamamlanır." },
+      { type: "h3", text: "Desteklenen Ağlar" },
+      { type: "ul", items: ["Ethereum (ERC-20): En yaygın kabul gören ağ, yüksek likidite.", "Binance Smart Chain (BEP-20): Hızlı ve düşük işlem ücreti.", "Tron (TRC-20): Çok düşük ücretler, Asya borsalarında yaygın.", "Polygon: Neredeyse sıfır ücret, anlık kesinleşme.", "Avalanche: Kurumsal hız ve yüksek işlem hacmi kapasitesi."] },
+      { type: "h2", text: "Flash USDT Kimler İçin Uygundur?" },
+      { type: "p", text: "Flash USDT yazılımları özellikle şu kullanıcı grupları tarafından tercih edilmektedir:" },
+      { type: "ul", items: ["P2P kripto alım-satım masaları: Yüksek hacimli işlemleri hızlı gerçekleştirmek için.", "Arbitraj operatörleri: Borsa fiyat farklılıklarından yararlanmak için anlık transfer gereksinimi.", "DeFi entegrasyon geliştiricileri: Protokol testleri ve likidite yönetimi.", "Kurumsal kripto işletmeleri: Günlük yüksek hacimli operasyonlar."] },
+      { type: "h2", text: "Flash USDT'nin Geçerlilik Süresi" },
+      { type: "p", text: "FlashTether NETWORK üzerinden gerçekleştirilen her flash işlem, işlemin onaylandığı andan itibaren 370 günlük geçerlilik süresine sahiptir. Bu süre Basic, Premium ve Master planlarının tamamında geçerlidir." },
+      { type: "h2", text: "Flash USDT Yazılımı Nasıl Edinilir?" },
+      { type: "p", text: "FlashTether NETWORK'ün lisans paketlerinden birini satın alarak flash USDT yazılımına erişebilirsiniz. Ödeme onaylandıktan sonra lisans anahtarınız anında e-posta ve Telegram/WhatsApp üzerinden iletilir. Dashboard'a giriş yaparak lisansınızı aktive edebilir ve yazılımı hemen kullanmaya başlayabilirsiniz." },
+      { type: "cta" },
+    ],
+  },
+
+  {
+    slug: "flash-usdt-nasil-kullanilir",
+    title: "Flash USDT Nasıl Kullanılır? Adım Adım Kılavuz",
+    excerpt:
+      "FlashTether NETWORK ile flash USDT göndermek için izlemeniz gereken adımları detaylıca anlattık. Hesap oluşturmadan ilk transfere kadar tüm süreç.",
+    date: "Temmuz 1, 2026",
+    readTime: "7 dk okuma",
+    category: "Rehber",
+    content: [
+      { type: "p", text: "Flash USDT kullanmak için profesyonel bir yazılıma ve aktif bir lisansa ihtiyaç duyarsınız. FlashTether NETWORK, kullanıcı dostu arayüzü ve kurumsal altyapısıyla bu süreci mümkün olduğunca basit hale getirmektedir." },
+      { type: "h2", text: "1. Adım: Lisans Planı Seçin" },
+      { type: "p", text: "İhtiyacınıza uygun planı seçin. Aylık transfer hacminizi göz önünde bulundurarak karar verin:" },
+      { type: "ul", items: ["Basic Plan: Ayda 50.000 USDT'ye kadar. Başlangıç seviyesi ve düşük hacimli P2P işlemler için ideal.", "Premium Plan: Ayda 150.000 USDT'ye kadar. Büyüyen işlemler ve orta ölçekli arbitraj masaları için.", "Master Plan: Ayda 50.000.000 USDT'ye kadar. Kurumsal ölçekli operasyonlar için tasarlandı."] },
+      { type: "h2", text: "2. Adım: Satın Alma ve Ödeme" },
+      { type: "p", text: "Seçtiğiniz planın checkout sayfasına gidin. USDT, BTC, ETH veya BNB ile ödeme yapabilirsiniz. Blockchain'de ödeme onaylandıktan sonra lisans anahtarınız, API dokümantasyonunuz ve kurulum videonuz anında e-posta ve Telegram/WhatsApp adresinize iletilir." },
+      { type: "h2", text: "3. Adım: Hesap Oluşturun ve Giriş Yapın" },
+      { type: "p", text: "flashtethernetwork.com adresindeki 'Kayıt Ol' bölümüne gidin. Lisans anahtarınızı ve e-posta adresinizi girerek hesabınızı oluşturun. Lisans anında aktive olur, manuel onay beklemenize gerek yoktur." },
+      { type: "h2", text: "4. Adım: Yazılımı Açın" },
+      { type: "p", text: "Dashboard'da 'Yazılımı Aç' butonuna tıklayın. Flash transfer arayüzüne yönlendirileceksiniz." },
+      { type: "h2", text: "5. Adım: Transfer Parametrelerini Girin" },
+      { type: "ul", items: ["Hedef cüzdan adresi: İşlem göndermek istediğiniz cüzdan.", "Miktar: Planınızın limiti dahilinde herhangi bir değer.", "Ağ: Ethereum, BSC, Polygon, Tron veya Avalanche.", "Gas ücreti: Daha hızlı onay için öncelik ücretini ayarlayabilirsiniz."] },
+      { type: "h2", text: "6. Adım: Gönder ve Takip Et" },
+      { type: "p", text: "Gönder butonuna basın. İşlem blockchain ağına yayınlanır ve gerçek zamanlı olarak dashboard'dan takip edebilirsiniz. Ağ yoğunluğuna bağlı olarak çoğu işlem saniyeler içinde onaylanır. Her işlemin on-chain hash'i ve onay durumu işlem geçmişinizde kayıt altına alınır." },
+      { type: "cta" },
+    ],
+  },
+
+  {
+    slug: "flash-usdt-satin-al",
+    title: "Flash USDT Satın Al: En Uygun Lisans Planları (2026)",
+    excerpt:
+      "Flash USDT yazılımı satın almak mı istiyorsunuz? FlashTether NETWORK lisans planlarını, fiyatlarını ve avantajlarını karşılaştırdık.",
+    date: "Temmuz 1, 2026",
+    readTime: "6 dk okuma",
+    category: "Rehber",
+    content: [
+      { type: "p", text: "Flash USDT yazılımı satın almadan önce ihtiyaçlarınızı net olarak belirlemeniz önemlidir. Transfer hacminiz, kullandığınız blockchain ağı ve destek gereksiniminiz, hangi planın sizin için uygun olduğunu belirler." },
+      { type: "h2", text: "FlashTether NETWORK Lisans Planları" },
+      { type: "h3", text: "Basic Plan" },
+      { type: "ul", items: ["Günlük: $100 | 7 Günlük: $500 | Aylık: $1.500", "Aylık 50.000 USDT transfer limiti", "ERC20, BEP20, TRC20, Polygon, Avalanche desteği", "370 günlük işlem geçerlilik süresi", "E-posta destek"] },
+      { type: "h3", text: "Premium Plan" },
+      { type: "ul", items: ["Günlük: $250 | 7 Günlük: $750 | Aylık: $2.500", "Aylık 150.000 USDT transfer limiti", "Tüm ağlar dahil", "370 günlük işlem geçerlilik süresi", "Öncelikli destek"] },
+      { type: "h3", text: "Master Plan" },
+      { type: "ul", items: ["Günlük: $1.500 | 7 Günlük: $5.000 | Aylık: $25.000", "Aylık 50.000.000 USDT transfer limiti", "Tüm ağlar + VIP destek", "370 günlük işlem geçerlilik süresi", "7/24 VIP destek hattı"] },
+      { type: "h2", text: "Hangi Planı Seçmeliyim?" },
+      { type: "p", text: "Kripto işlemlerine yeni başlıyorsanız Basic planıyla başlayın. P2P işlem masanız büyüdükçe Premium'a geçebilirsiniz. Kurumsal ölçekte çalışıyorsanız Master plan en verimli seçenektir; yüksek hacim maliyeti bireysel işlem başına düşürür." },
+      { type: "h2", text: "Ödeme Yöntemleri" },
+      { type: "p", text: "Tüm planlar USDT, BTC, ETH ve BNB ile ödenebilir. Ödeme blockchain'de onaylandıktan sonra lisans anahtarınız dakikalar içinde teslim edilir. Kredi kartı gerektirmez, anonim ödeme desteklenir." },
+      { type: "h2", text: "Satın Alma Sonrası Süreç" },
+      { type: "p", text: "Ödeme onayının ardından lisans anahtarı, kurulum videosu ve API dokümantasyonu e-posta ve Telegram/WhatsApp üzerinden gönderilir. flashtethernetwork.com'a giriş yaparak lisansınızı aktive edin ve aynı dakika flash USDT transferi yapmaya başlayın." },
+      { type: "cta" },
+    ],
+  },
+
+  {
+    slug: "flash-usdt-guvenli-mi",
+    title: "Flash USDT Güvenli Mi? Bilmeniz Gereken Her Şey",
+    excerpt:
+      "Flash USDT yazılımları hakkında merak edilen güvenlik soruları ve FlashTether NETWORK'ün AES-256 şifreleme altyapısı hakkında kapsamlı bilgi.",
+    date: "Temmuz 1, 2026",
+    readTime: "6 dk okuma",
+    category: "Sık Sorulan Sorular",
+    content: [
+      { type: "p", text: "Flash USDT yazılımlarının güvenliği, bu alanda en sık sorulan sorular arasındadır. FlashTether NETWORK, kurumsal düzeyde güvenlik altyapısıyla çalışmaktadır ve kullanıcı verilerini korumak için çok katmanlı şifreleme sistemi kullanmaktadır." },
+      { type: "h2", text: "AES-256 Şifreleme" },
+      { type: "p", text: "FlashTether NETWORK, tüm veri iletimini AES-256 şifreleme standardıyla korur. Bu standart, bankacılık sektörü ve savunma sanayii tarafından kullanılan endüstri standardıdır. Transfer parametreleriniz ve cüzdan bilgileriniz şifreli kanallar üzerinden iletilir." },
+      { type: "h2", text: "Lisans Doğrulama Sistemi" },
+      { type: "p", text: "Her kullanıcı benzersiz bir lisans anahtarıyla kimlik doğrulaması yapar. Lisans anahtarı olmadan sisteme erişim mümkün değildir. Anahtarlar tek kullanıcıya atanır ve paylaşıma karşı korumalıdır." },
+      { type: "h2", text: "Gizlilik ve Anonimlik" },
+      { type: "p", text: "FlashTether NETWORK, kullanıcı mahremiyetine saygı duyar. Ödeme kripto para birimleriyle yapıldığı için kimlik doğrulama gerektirmez. İşlem geçmişiniz yalnızca kendi dashboard'unuzda görüntülenebilir." },
+      { type: "h2", text: "%99.9 Çalışma Süresi Garantisi" },
+      { type: "p", text: "Platformumuz, %99.9 uptime garantisiyle çalışmaktadır. Sunucu altyapımız küresel olarak dağıtılmış ve yedeklenmiş sistemler üzerine kuruludur. Bakım pencereleri önceden bildirilir ve minimum kesinti ile tamamlanır." },
+      { type: "h2", text: "Şüpheli Durumlarda Ne Yapmalıyım?" },
+      { type: "ul", items: ["Lisans anahtarınızı hiçbir zaman başkasıyla paylaşmayın.", "Yalnızca resmi flashtethernetwork.com adresi üzerinden giriş yapın.", "Şüpheli bir durum fark ederseniz destek ekibimize anında bildirin.", "İki faktörlü doğrulama (2FA) özelliğini aktive etmenizi öneririz."] },
+      { type: "cta" },
+    ],
+  },
+
+  {
+    slug: "flash-usdt-trc20-nedir",
+    title: "Flash USDT TRC20 Nedir? Tron Ağında Flash Transfer",
+    excerpt:
+      "TRC20 ağında flash USDT transferi nasıl yapılır? Düşük işlem ücreti ve yüksek hızıyla Tron ağının avantajlarını keşfedin.",
+    date: "Temmuz 1, 2026",
+    readTime: "5 dk okuma",
+    category: "Rehber",
+    content: [
+      { type: "p", text: "Flash USDT TRC20, Tron blockchain'i üzerinde gerçekleştirilen anlık USDT transferlerini ifade eder. TRC20, ERC20'ye kıyasla çok daha düşük işlem ücretleri ve hızlı onay süreleriyle özellikle Asya kripto piyasasında yaygın olarak kullanılmaktadır." },
+      { type: "h2", text: "Neden TRC20 Tercih Edilir?" },
+      { type: "ul", items: ["Çok düşük gas ücreti: ERC20'ye göre 10-50 kat daha az ücret.", "Hızlı onay: Tron ağı ortalama 3 saniye blok süresiyle çalışır.", "Geniş borsa desteği: Büyük merkezi borsaların çoğu TRC20 USDT'yi destekler.", "P2P uyumluluğu: P2P alım-satım platformlarının büyük çoğunluğu TRC20 tercih eder."] },
+      { type: "h2", text: "FlashTether NETWORK ile TRC20 Flash Transfer" },
+      { type: "p", text: "FlashTether NETWORK, TRC20 ağını tam olarak desteklemektedir. Transfer arayüzünde ağ seçeneğinden 'Tron (TRC-20)' seçin. Hedef cüzdan adresinin T harfiyle başladığına dikkat edin — bu Tron ağına ait cüzdanların standart formatıdır." },
+      { type: "h2", text: "TRC20 Flash Transfer Hızı" },
+      { type: "p", text: "Tron ağında işlem onayları ortalama 3-5 saniye içinde gerçekleşir. FlashTether NETWORK'ün altyapısı bu hızı maksimumda tutmak için Tron ağ düğümleriyle doğrudan bağlantı kullanır." },
+      { type: "h2", text: "TRC20 ve Diğer Ağların Karşılaştırması" },
+      { type: "ul", items: ["TRC20 vs ERC20: TRC20 çok daha ucuz ancak ERC20 daha geniş DeFi desteği sunar.", "TRC20 vs BEP20: Benzer ücret yapısı; BEP20 Binance ekosistemine daha entegre.", "TRC20 vs Polygon: Her ikisi de düşük ücretlidir; Polygon Ethereum ile daha uyumlu."] },
+      { type: "cta" },
+    ],
+  },
+
+  {
+    slug: "flash-usdt-p2p-islemlerde-kullanimi",
+    title: "Flash USDT P2P İşlemlerde Nasıl Kullanılır?",
+    excerpt:
+      "P2P kripto alım-satım masanızda flash USDT yazılımını nasıl kullanabileceğinizi ve hangi avantajlar sağladığını anlattık.",
+    date: "Temmuz 1, 2026",
+    readTime: "6 dk okuma",
+    category: "Rehber",
+    content: [
+      { type: "p", text: "P2P (eşten eşe) kripto alım-satım işlemlerinde hız ve güvenilirlik kritiktir. Flash USDT yazılımları, P2P masaları için anlık yüksek hacimli USDT transferi imkânı sunarak rekabet avantajı sağlar." },
+      { type: "h2", text: "P2P Masaları İçin Flash USDT Avantajları" },
+      { type: "ul", items: ["Anlık işlem: Müşteri beklemez, işlem saniyeler içinde tamamlanır.", "Yüksek hacim kapasitesi: Günde onlarca işlemi sorunsuz yönetebilirsiniz.", "Çoklu ağ desteği: Müşterinizin tercih ettiği ağda transfer yapabilirsiniz.", "İşlem geçmişi: Her transferin on-chain kanıtı otomatik kaydedilir."] },
+      { type: "h2", text: "Tipik P2P İş Akışı" },
+      { type: "p", text: "Müşteri size fiat para yatırır → Siz FlashTether NETWORK üzerinden USDT transferi başlatırsınız → Müşterinin cüzdanı saniyeler içinde USDT alır → İşlem geçmişinden onay ekran görüntüsü paylaşırsınız. Tüm süreç 1-2 dakika içinde tamamlanabilir." },
+      { type: "h2", text: "Hangi Plan P2P Masaları İçin Uygun?" },
+      { type: "p", text: "Günlük 10-20 işlem yapıyorsanız Basic plan yeterlidir. Büyüyen bir P2P masanız varsa Premium planın 150.000 USDT/aylık limiti orta ölçekli operasyonları rahatlıkla karşılar. Yüksek hacimli kurumsal P2P operasyonları için Master plan en verimli seçenektir." },
+      { type: "h2", text: "P2P'de Ağ Seçimi" },
+      { type: "p", text: "Türkiye ve Orta Doğu merkezli P2P işlemlerde TRC20 en çok tercih edilen ağdır; düşük ücret ve hızlı onayı nedeniyle. Avrupa ve ABD pazarlarında ERC20 veya BEP20 daha yaygındır. FlashTether NETWORK her iki durumu da destekler." },
+      { type: "h2", text: "İşlem Geçerliliği ve Muhasebe" },
+      { type: "p", text: "Her flash transfer 370 günlük geçerlilik süresine sahiptir ve on-chain hash ile belgelenmiştir. Bu, muhasebe ve uyumluluk süreçleri için güvenilir bir kayıt sistemi oluşturur." },
       { type: "cta" },
     ],
   },
