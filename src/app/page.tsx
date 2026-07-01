@@ -8,7 +8,7 @@ import { FAQ } from "@/components/FAQ";
 import { LiveChatCTA } from "@/components/LiveChatCTA";
 import { Footer } from "@/components/Footer";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://flashtethernetwork.vercel.app";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.flashtethernetwork.com";
 
 const jsonLd = {
   "@context": "https://schema.org",
